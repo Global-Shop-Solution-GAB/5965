@@ -1,0 +1,1386 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.f_Main..Create(BaseForm)
+Gui.f_Main..Caption("RFQ Recap Export")
+Gui.f_Main..Size(387,170)
+Gui.f_Main..MinX(0)
+Gui.f_Main..MinY(0)
+Gui.f_Main..Position(0,0)
+Gui.f_Main..AlwaysOnTop(False)
+Gui.f_Main..FontName("Tahoma")
+Gui.f_Main..FontSize(8.25)
+Gui.f_Main..ControlBox(True)
+Gui.f_Main..MaxButton(False)
+Gui.f_Main..MinButton(True)
+Gui.f_Main..MousePointer(0)
+Gui.f_Main..Moveable(True)
+Gui.f_Main..Sizeable(False)
+Gui.f_Main..ShowInTaskBar(True)
+Gui.f_Main..TitleBar(True)
+Gui.f_Main..Event(UnLoad,f_Main_UnLoad)
+Gui.f_Main.lblCustomer.Create(Label,"Customer:",True,50,13,0,7,8,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Main.lblCustomer.BorderStyle(0)
+Gui.f_Main.txtCustomer.Create(TextBox,"",True,272,20,0,78,25,True,0,"Tahoma",8.25,,1)
+Gui.f_Main.cmdCustBrowser.Create(Button)
+Gui.f_Main.cmdCustBrowser.Enabled(True)
+Gui.f_Main.cmdCustBrowser.Visible(True)
+Gui.f_Main.cmdCustBrowser.Zorder(0)
+Gui.f_Main.cmdCustBrowser.Size(25,20)
+Gui.f_Main.cmdCustBrowser.Position(354,25)
+Gui.f_Main.cmdCustBrowser.Caption("^")
+Gui.f_Main.cmdCustBrowser.FontName("Tahoma")
+Gui.f_Main.cmdCustBrowser.FontSize(8.25)
+Gui.f_Main.cmdCustBrowser.Event(Click,cmdCustBrowser_Click)
+Gui.f_Main.lblAssembly.Create(Label,"Assembly:",True,49,13,0,7,55,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Main.lblAssembly.BorderStyle(0)
+Gui.f_Main.txtAssembly.Create(TextBox,"",True,225,20,0,125,74,True,0,"Tahoma",8.25,,1)
+Gui.f_Main.cmdAssemblyBrowser.Create(Button)
+Gui.f_Main.cmdAssemblyBrowser.Enabled(True)
+Gui.f_Main.cmdAssemblyBrowser.Visible(True)
+Gui.f_Main.cmdAssemblyBrowser.Zorder(0)
+Gui.f_Main.cmdAssemblyBrowser.Size(25,20)
+Gui.f_Main.cmdAssemblyBrowser.Position(354,74)
+Gui.f_Main.cmdAssemblyBrowser.Caption("^")
+Gui.f_Main.cmdAssemblyBrowser.FontName("Tahoma")
+Gui.f_Main.cmdAssemblyBrowser.FontSize(8.25)
+Gui.f_Main.cmdAssemblyBrowser.Event(Click,cmdAssemblyBrowser_Click)
+Gui.f_Main.chkExcelExport.Create(CheckBox)
+Gui.f_Main.chkExcelExport.Enabled(True)
+Gui.f_Main.chkExcelExport.Visible(True)
+Gui.f_Main.chkExcelExport.Zorder(0)
+Gui.f_Main.chkExcelExport.Size(105,20)
+Gui.f_Main.chkExcelExport.Position(7,107)
+Gui.f_Main.chkExcelExport.Caption("Export to Excel?")
+Gui.f_Main.chkExcelExport.FontName("Tahoma")
+Gui.f_Main.chkExcelExport.FontSize(8.25)
+Gui.f_Main.cmdExport.Create(Button)
+Gui.f_Main.cmdExport.Enabled(True)
+Gui.f_Main.cmdExport.Visible(True)
+Gui.f_Main.cmdExport.Zorder(0)
+Gui.f_Main.cmdExport.Size(75,23)
+Gui.f_Main.cmdExport.Position(304,106)
+Gui.f_Main.cmdExport.Caption("Export")
+Gui.f_Main.cmdExport.FontName("Tahoma")
+Gui.f_Main.cmdExport.FontSize(8.25)
+Gui.f_Main.cmdExport.Event(Click,cmdExport_Click)
+Gui.f_Main.txtCustNo.Create(TextBox,"",True,68,20,0,7,25,True,0,"Tahoma",8.25,,1)
+Gui.f_Main.txtCustNo.Event(LostFocus,txtCustNo_LostFocus)
+Gui.f_Main.txtParent.Create(TextBox,"",True,114,20,0,7,74,True,0,"Tahoma",8.25,,1)
+Gui.f_Export_Data..Create(BaseForm)
+Gui.f_Export_Data..Caption("RFQ Recap Export Information")
+Gui.f_Export_Data..Size(1408,847)
+Gui.f_Export_Data..MinX(0)
+Gui.f_Export_Data..MinY(0)
+Gui.f_Export_Data..Position(0,0)
+Gui.f_Export_Data..AlwaysOnTop(False)
+Gui.f_Export_Data..FontName("Tahoma")
+Gui.f_Export_Data..FontSize(8.25)
+Gui.f_Export_Data..ControlBox(True)
+Gui.f_Export_Data..MaxButton(True)
+Gui.f_Export_Data..MinButton(True)
+Gui.f_Export_Data..MousePointer(0)
+Gui.f_Export_Data..Moveable(True)
+Gui.f_Export_Data..Sizeable(False)
+Gui.f_Export_Data..ShowInTaskBar(True)
+Gui.f_Export_Data..TitleBar(True)
+Gui.f_Export_Data..Event(UnLoad,f_Export_Data_UnLoad)
+Gui.f_Export_Data.GsGcExportData.Create(GsGridControl)
+Gui.f_Export_Data.GsGcExportData.Enabled(True)
+Gui.f_Export_Data.GsGcExportData.Visible(True)
+Gui.f_Export_Data.GsGcExportData.Zorder(0)
+Gui.f_Export_Data.GsGcExportData.Size(1395,754)
+Gui.f_Export_Data.GsGcExportData.Position(6,23)
+Gui.f_Export_Data.GsGcExportData.Anchor(15)
+Gui.f_Export_Data.lblReview.Create(Label,"RFQ Recap Information to Review:",True,168,13,0,8,5,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Export_Data.lblReview.BorderStyle(0)
+Gui.f_Export_Data.cmdOK.Create(Button)
+Gui.f_Export_Data.cmdOK.Enabled(True)
+Gui.f_Export_Data.cmdOK.Visible(True)
+Gui.f_Export_Data.cmdOK.Zorder(0)
+Gui.f_Export_Data.cmdOK.Size(75,23)
+Gui.f_Export_Data.cmdOK.Position(1326,787)
+Gui.f_Export_Data.cmdOK.Caption("OK")
+Gui.f_Export_Data.cmdOK.FontName("Tahoma")
+Gui.f_Export_Data.cmdOK.FontSize(8.25)
+Gui.f_Export_Data.cmdOK.Event(Click,cmdOK_Click)
+Gui.f_Export_Data.cmdOK.Anchor(10)
+Gui.f_Export_Data.cmdCancel.Create(Button)
+Gui.f_Export_Data.cmdCancel.Enabled(True)
+Gui.f_Export_Data.cmdCancel.Visible(True)
+Gui.f_Export_Data.cmdCancel.Zorder(0)
+Gui.f_Export_Data.cmdCancel.Size(75,23)
+Gui.f_Export_Data.cmdCancel.Position(8,787)
+Gui.f_Export_Data.cmdCancel.Caption("Cancel")
+Gui.f_Export_Data.cmdCancel.FontName("Tahoma")
+Gui.f_Export_Data.cmdCancel.FontSize(8.25)
+Gui.f_Export_Data.cmdCancel.Event(Click,cmdCancel_Click)
+Gui.f_Export_Data.cmdCancel.Anchor(6)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.bError.Declare(Boolean)
+V.Global.bUnattended.Declare(Boolean)
+V.Global.bExcel.Declare(Boolean)
+V.Global.sCustomerNo.Declare(String)
+V.Global.sParentNo.Declare(String)
+V.Global.sParentRev.Declare(String)
+V.Global.sPartNo.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+'Written by Ashley Collins
+'For Arc-Tronics
+'Custom RFQ Recap Excel Export
+Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+
+'Open the connection to the database
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN, V.Ambient.PUser, V.Ambient.PPass)
+
+Gui.f_Main..Show
+
+F.Intrinsic.Control.BlockEvents
+Gui.f_Main.txtCustNo.SetFocus
+F.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.cmdCustBrowser_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sRet.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sTitiles.Declare(String)
+V.Local.sWidths.Declare(String)
+
+F.Intrinsic.UI.CommonBrowser(205, "", V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*", V.Local.sRet)
+	V.Global.sCustomerNo.Set(V.Local.sRet(0).Trim)
+	Gui.f_Main.txtCustNo.Text(V.Local.sRet(0).Trim)
+	Gui.f_Main.txtCustomer.Text(V.Local.sRet(1).Trim)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCustBrowser_Click.End
+
+Program.Sub.txtCustNo_LostFocus.Start
+F.Intrinsic.Control.Try
+V.Local.sCustNo.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sSQL.Declare(String)
+
+V.Local.sCustNo.Set(V.Screen.f_Main!txtCustNo.Text)
+V.Global.sCustomerNo.Set(V.Local.sCustNo)
+
+F.Intrinsic.String.Build("SELECT NAME_CUSTOMER FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{0}'", V.Local.sCustNo.Trim,V.Local.sSQL)
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	Gui.f_Main.txtCustomer.Text(V.Local.sRet.Trim)
+F.Intrinsic.Control.Else
+	Gui.f_Main.txtCustomer.Text("")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.txtCustNo_LostFocus.End
+
+Program.Sub.cmdAssemblyBrowser_Click.Start
+F.Intrinsic.Control.Try
+V.Local.iWidths.Declare(Long)
+V.Local.sRet.Declare(String)
+v.Local.sSQL.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sParentPart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sFullParentPart.declare(String)
+
+F.Intrinsic.String.Split("PARENT NUMBER*!*REV*!*DESCRIPTION*!*BOM SEQUENCE*!*PART", "*!*", v.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*500*!*2000*!*950*!*1050", "*!*", V.Local.iWidths)
+V.Local.sSQL.Set("SELECT SUBSTRING(A.PARENT,1,17) AS PARENT, SUBSTRING(A.PARENT,18,3) AS REV,B.DESCRIPTION, A.SEQUENCE_BOM, B.PART FROM V_BOM_MSTR A LEFT JOIN V_BOM_ENG B ON A.PART = B.PART ORDER BY A.PARENT")
+F.Intrinsic.UI.Browser("Select an Assembly","con",V.Local.sSQL, V.Local.sTitles, V.Local.iWidths, V.Local.sRet)
+
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*", V.Local.sRet)
+	V.Local.sParentPart.Set(V.Local.sRet(0))
+	V.Local.sRev.Set(V.Local.sRet(1))
+	F.Intrinsic.String.Build("{0}{1}",V.Local.sParentPart,V.Local.sRev,V.Local.sFullParentPart)
+	V.Global.sParentNo.Set(V.Local.sFullParentPart)
+	V.Global.sParentRev.Set(V.Local.sRev)
+	F.Intrinsic.Control.If(V.Local.sRet(4).Trim,<>,"")
+		V.Global.sPartNo.Set(V.Local.sRet(4).Trim)
+		Gui.f_Main.txtParent.Text(V.Global.sPartNo.Trim)
+		Gui.f_Main.txtAssembly.Text(V.Local.sRet(2).Trim)
+	F.Intrinsic.Control.Else
+		V.Global.sPartNo.Set("")
+		Gui.f_Main.txtParent.Text(v.Global.sParentNo)
+		Gui.f_Main.txtAssembly.Text("PARENT PART NUMBER")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdAssemblyBrowser_Click.End
+
+Program.Sub.cmdExport_Click.Start
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Screen.f_Main!txtCustomer.Text,=,"", "AND", V.Screen.f_Main!txtCustNo.Text,=,"")
+	F.Intrinsic.UI.Msgbox("You must select a Customer to continue!", "Required Field")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.f_Main!txtParent.Text,=,"")
+	F.Intrinsic.UI.Msgbox("You must select an Assembly to continue!", "Required Field")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Hide the main screen until the user clicks OK to export
+Gui.f_Main..Visible(False)
+
+'Check to see if they are exporting to excel. If they are, set the global variable to true. If not, set it to false.
+F.Intrinsic.Control.If(V.Screen.f_Main!chkExcelExport.Value,=,1)
+	V.Global.bExcel.Set(1)
+F.Intrinsic.Control.Else
+	V.Global.bExcel.Set(0)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.InvokeWaitDialog("Loading RFQ Recap Information...", "Please Wait")
+
+'Load the grid 
+F.Intrinsic.Control.CallSub(LoadGrid)
+'Populate the grid with data based on the customer and assembly selected
+F.Intrinsic.Control.CallSub(LoadData)
+
+F.Intrinsic.UI.ChangeWaitStatus("Formatting Grid...")
+
+'Format the grid
+F.Intrinsic.Control.CallSub(FormatGrid)
+
+F.Intrinsic.UI.CloseWaitDialog
+
+Gui.f_Export_Data..Show
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.LoadGrid.Start
+F.Intrinsic.Control.Try
+V.Local.sSQL.Declare(String)
+F.Intrinsic.Control.If(V.DataTable.dtRFQ.Exists)
+	F.Data.Datatable.Close("dtRFQ")
+F.Intrinsic.Control.EndIf
+
+F.Data.Datatable.Create("dtRFQ", True)
+F.Data.DataTable.AddColumn("dtRFQ", "BOM_PARENT", "STRING")
+F.Data.DataTable.AddColumn("dtRFQ", "BOM_PARENT_REV", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "PART_SOURCE", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "GSSPart", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "REV", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "PARTREV", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "FULLPART", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "DESCRIPTION", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "UM", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "PART_CLASS", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "PART_TYPE", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "BUYER_TYPE","STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "BUYER", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "PUR_LTIME", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "PUR_LUNIT", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "KIT_LTIME", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "KIT_LUNIT", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "PROD_LTIME", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "PROD_LUNIT", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTY", "NUMERIC")
+F.Data.Datatable.AddColumn("dtRFQ", "STD_COST", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "EXT_COST", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "LAST_PAID", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "LAST_PAID_EXT", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "LAST_QTY", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "LAST_RECV", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "LAST_SUPPLIER", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "LAST_PARTMFGR", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "LAST_MFGRPARTNO", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "CUSTPART", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "CUSTPARTREV", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "CUSTOMER", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "REQQTY", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "QTY_ONHANDAPPR", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "QTY_ONHANDNONAPPR", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "ONORDER", "FLOAT" )
+F.Data.Datatable.AddColumn("dtRFQ", "QTY_ONPOAPPR", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "QTY_ONPONONAPPR", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "ONORDER_PARTMFGR", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "ONORDER_MFGPARTNO", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "ONORDER_UCOST", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MULTI_COST", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "OPENCOST_EXT", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MATLTYPE", "STRING")
+F.Data.DataTable.AddColumn("dtRFQ", "VENDOR", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "SUPNAME", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "REQQTY90", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "ONORDER90", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "TOTAL_QTY_OH", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH1", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR1", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR1", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN2", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG2", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH2", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR2", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR2", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN3", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG3", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH3", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR3", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR3", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN4", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG4", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH4", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR4", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR4", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN5", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG5", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH5", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR5", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR5", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN6", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG6", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH6", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR6", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR6", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN7", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG7", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH7", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR7", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR7", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MPN8", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "MFG8", "STRING")
+F.Data.Datatable.AddColumn("dtRFQ", "QTYOH8", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHAPPR8", "FLOAT")
+F.Data.DataTable.AddColumn("dtRFQ", "QTYOHUNAPPR8", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MRP_MINORDER", "FLOAT")
+F.Data.Datatable.AddColumn("dtRFQ", "MRP_MULTIPLE", "FLOAT")
+
+F.Data.DataView.Create("dtRFQ", "dvRFQ", 22)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadGrid.End
+
+Program.Sub.LoadData.Start
+F.Intrinsic.Control.Try
+V.Local.fLeadTime.Declare(Float)
+V.Local.iCnt.Declare(Long)
+V.Local.iMfgNoCnt.Declare(Long)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sPart.Declare(String)
+
+'check to see if they selected the parent part number
+f.Intrinsic.Control.If(V.Global.sPartNo.Trim,=,"")
+	F.Intrinsic.String.Build("SELECT PART FROM V_BOM_MSTR WHERE PARENT = '{0}'", V.Global.sParentNo.Trim,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		F.Intrinsic.String.Build("'{0}'",V.Local.sRet,V.Local.sRet)
+		F.Intrinsic.String.Replace(V.Local.sRet,"#$#", "','",V.Local.sRet)
+	F.Intrinsic.Control.EndIf
+ 
+	F.Intrinsic.String.Build("SELECT DISTINCT SUBSTRING(A.PART,1,17) AS GSSPART, SUBSTRING(A.PART,18,3) AS REV, LTRIM(RTRIM(A.PART)) AS PARTREV, A.PART AS FULLPART, B.CUSTOMER AS CUSTOMER, RTRIM(A.DESCRIPTION) AS DESCRIPTION, A.UM_PURCHASING AS UM, RTRIM(A.CODE_SORT) AS BUYER_TYPE, A.QTY_REQUIRED AS REQQTY, A.QTY_ONORDER_PO AS ONORDER, A.QTY_ORDER AS MRP_MINORDER,  A.QTY_REORDER AS MRP_MULTIPLE FROM V_INVENTORY_ALL A LEFT JOIN V_INV_CROSS_REF B ON A.PART = B.PART WHERE B.CUSTOMER = '{0}' AND A.PART IN ({1}) AND (A.CODE_SOURCE IN ('P','J') OR A.TEMP_PURCH = 'Y') ORDER BY A.PART", V.Global.sCustomerNo.Trim, V.Local.sRet, V.Local.sSQL)
+'check to see if they selected a specific part number under and assembly
+F.Intrinsic.Control.ElseIf(V.Global.sPartNo,<>,"")
+
+	F.Intrinsic.String.Build("SELECT DISTINCT SUBSTRING(A.PART,1,17) AS GSSPART, SUBSTRING(A.PART,18,3) AS REV, LTRIM(RTRIM(A.PART)) AS PARTREV, A.PART AS FULLPART, B.CUSTOMER AS CUSTOMER, RTRIM(A.DESCRIPTION) AS DESCRIPTION, A.UM_PURCHASING AS UM, RTRIM(A.CODE_SORT) AS BUYER_TYPE, A.QTY_REQUIRED AS REQQTY, A.QTY_ONORDER_PO AS ONORDER, A.QTY_ORDER AS MRP_MINORDER,  A.QTY_REORDER AS MRP_MULTIPLE FROM V_INVENTORY_ALL A LEFT JOIN V_INV_CROSS_REF B ON A.PART = B.PART WHERE B.CUSTOMER = '{0}' AND A.PART = '{1}' AND (A.CODE_SOURCE IN ('P','J') OR A.TEMP_PURCH = 'Y') ORDER BY A.PART", V.Global.sCustomerNo.Trim, v.Global.sPartNo.Trim, V.Local.sSQL)
+f.Intrinsic.Control.EndIf
+f.Data.Datatable.CreateFromSQL("dtInvCheck", "con",V.Local.sSQL, True)
+
+V.Local.sSQL.Set("SELECT DISTINCT CONCAT(PART,REV) AS FULLPART, PART_SOURCE, PART_TYPE, PART_CLASS, QTY, STD_COST, (CAST(STD_COST AS FLOAT) * CAST(QTY AS FLOAT)) AS EXT_COST, MAT_TYPE AS MATLTYPE, CUST_PART AS CUSTPART, CUST_REV AS CUSTPARTREV FROM GCG_5786_BOM_EDIT")
+F.Data.Datatable.CreateFromSQL("dtCustomInfo", "con", V.Local.sSQL)
+
+F.Data.Linq.Join(V.Enum.LinqJoinType!LeftJoin, V.Enum.LinqSourceType!DataTable, "dtInvCheck*!*A", V.Enum.LinqSourceType!DataTable, "dtCustomInfo*!*B", "A.FULLPART = B.FULLPART","*", "", "","", "dtJoin", True)
+
+'get all inventory parts that are to be purchased 
+
+f.Data.Datatable.DeleteRow("dtRFQ")
+F.Data.Datatable.AcceptChanges("dtRFQ")
+F.Data.Datatable.Merge("dtJoin","dtRFQ", False, 2)
+F.Data.Datatable.Close("dtInvCheck")
+F.Data.Datatable.Close("dtJoin")
+
+'Get the on hand approved qtys by AVL
+f.Data.dictionary.CreateFromSQL("dictAVLOnHand","con","SELECT RTRIM(A.PART) AS PARTREV, ISNULL(SUM(B.QTY_AVAILABLE_SHIP),0) AS QTYONHAND FROM V_INV_CROSS_REF A LEFT JOIN V_ITEM_MASTER B ON A.PART = B.PART AND LTRIM(RTRIM(A.MFG_PART)) = LTRIM(RTRIM(B.SERIAL_NUMBER)) AND LTRIM(RTRIM(A.MFG_NAME)) = LTRIM(RTRIM(B.HEAT)) WHERE CONCAT(A.MFG_PART,A.MFG_NAME) IN (SELECT CONCAT(MFG_PART, MFG_NAME) FROM V_BOM_XREF) GROUP BY A.PART, A.MFG_PART, A.MFG_NAME")
+f.Data.Dictionary.SetDefaultReturn("dictAVLOnHand",0)
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PARTREV","QTY_ONHANDAPPR")
+f.Data.Dictionary.Close("dictAVLOnHand")
+	
+'Get the on hand non-approved qtys by AVL
+f.Data.dictionary.CreateFromSQL("dictAVLOnHand","con","SELECT RTRIM(A.PART) AS PARTREV, ISNULL(SUM(B.QTY_AVAILABLE_SHIP),0) AS QTYONHAND FROM V_INV_CROSS_REF A LEFT JOIN V_ITEM_MASTER B ON A.PART = B.PART AND LTRIM(RTRIM(A.MFG_PART)) = LTRIM(RTRIM(B.SERIAL_NUMBER)) AND LTRIM(RTRIM(A.MFG_NAME)) = LTRIM(RTRIM(B.HEAT)) WHERE CONCAT(A.MFG_PART,A.MFG_NAME) NOT IN (SELECT CONCAT(MFG_PART, MFG_NAME) FROM V_BOM_XREF) GROUP BY A.PART, A.MFG_PART, A.MFG_NAME")
+f.Data.Dictionary.SetDefaultReturn("dictAVLOnHand",0)
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PARTREV","QTY_ONHANDNONAPPR")
+f.Data.Dictionary.Close("dictAVLOnHand")
+	
+'Get the on PO approved qtys by AVL
+f.Data.dictionary.CreateFromSQL("dictAVLOnPO","con","SELECT RTRIM(PART) AS PARTREV, ISNULL(SUM(QTY_ORDER - QTY_RECEIVED + QTY_REJECT),0) AS QTYONPO FROM V_PO_LINES WHERE CONCAT(PART_MFG_NO, MFG_NAME) IN (SELECT CONCAT(MFG_PART, MFG_NAME) FROM V_BOM_XREF) GROUP BY PART")
+f.Data.Dictionary.SetDefaultReturn("dictAVLOnPO",0)
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnPO","PARTREV","QTY_ONPOAPPR")
+f.Data.Dictionary.Close("dictAVLOnPO")
+	
+'Get the on PO non-approved qtys by AVL
+f.Data.dictionary.CreateFromSQL("dictAVLOnPO","con","SELECT RTRIM(PART) AS PARTREV, ISNULL(SUM(QTY_ORDER - QTY_RECEIVED + QTY_REJECT),0) AS QTYONPO FROM V_PO_LINES WHERE CONCAT(PART_MFG_NO, MFG_NAME) NOT IN (SELECT CONCAT(MFG_PART,MFG_NAME) FROM V_BOM_XREF) GROUP BY PART")
+f.Data.Dictionary.SetDefaultReturn("dictAVLOnPO",0)
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnPO","PARTREV","QTY_ONPONONAPPR")
+f.Data.Dictionary.Close("dictAVLOnPO")
+
+'Populate the Vendor information
+F.Data.Dictionary.CreateFromSQL("dictVendor", "con", "SELECT VENDOR, NAME_VENDOR FROM V_VENDOR_MASTER")
+F.Data.Dictionary.SetDefaultReturn("dictVendor", "")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictVendor", "VENDOR","SUPNAME" )
+F.Data.Dictionary.Close("dictVendor")
+
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtRFQ.RowCount--,1)
+	'If the source is buy, set the pur ltime and pur lunit
+	F.Intrinsic.Control.If(V.DataTable.dtRFQ(V.Local.iCnt).PART_SOURCE!FieldValTrim,=,"P", "OR", V.DataTable.dtRFQ(V.Local.iCnt).PART_SOURCE!FieldValTrim,=, "J")
+		V.Local.sPart.Set(V.DataTable.dtRFQ(V.Local.iCnt).PartRev!FieldVal)
+		F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(PART,REV) AS FULLPART, SUM(CAST(LEAD_TIME AS FLOAT)) as LEAD_TIME FROM GCG_5786_BOM_EDIT WHERE FULLPART = '{0}' GROUP BY FULLPART",V.Local.sPart,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+			F.Intrinsic.String.Split(V.Local.sRet,"*!*", V.Local.sRet)
+			V.Local.fLeadTime.Set(V.Local.sRet(1).Float)
+			F.Data.DataTable.SetValue("dtRFQ",V.Local.iCnt, "PUR_LTIME", V.Local.fLeadTime, "PUR_LUNIT","DY","KIT_LTIME", 0, "KIT_LUNIT","DY", "PROD_LTIME", 0, "PROD_LUNIT", "DY")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.ElseIf(V.DataTable.dtRFQ(V.Local.iCnt).PART_SOURCE!FieldValTrim,=,"M", "OR",V.DataTable.dtRFQ(V.Local.iCnt).PART_SOURCE!FieldValTrim,=,"F", V.DataTable.dtRFQ(V.Local.iCnt).PART_SOURCE!FieldValTrim,=,"C", V.DataTable.dtRFQ(V.Local.iCnt).PART_SOURCE!FieldValTrim,=,"G")
+		V.Local.sPart.Set(V.DataTable.dtRFQ(V.Local.iCnt).PartRev!FieldVal)
+		F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(PART,REV) AS FULLPART, SUM(CAST(LEAD_TIME AS FLOAT)) as LEAD_TIME FROM GCG_5786_BOM_EDIT WHERE FULLPART = '{0}' GROUP BY FULLPART",V.Local.sPart,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+			F.Intrinsic.String.Split(V.Local.sRet,"*!*", V.Local.sRet)
+			V.Local.fLeadTime.Set(V.Local.sRet(1).Float)
+			F.Data.DataTable.SetValue("dtRFQ",V.Local.iCnt, "KIT_LTIME", V.Local.fLeadTime, "KIT_LUNIT","DY", "PROD_LTIME", V.Local.fLeadTime, "PROD_LUNIT", "DY","PUR_LTIME", 0, "PUR_LUNIT","DY")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+F.Intrinsic.UI.ChangeWaitStatus("Loading Manufacturing Information...")
+
+F.Intrinsic.Control.CallSub(LoadMfgData)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadData.End
+
+Program.Sub.LoadMfgData.Start
+F.Intrinsic.Control.Try
+V.Local.dTodayDate.Declare(Date)
+V.Local.d90Days.Declare(Date)
+V.Local.iCnt.Declare(Long)
+V.Local.iMfgNoCnt.Declare(Long)
+V.Local.fLastPaid.Declare(Float)
+V.Local.fLastPaidExt.Declare(Float)
+V.Local.fLastQty.Declare(Float)
+V.Local.fOnOrderCost.Declare(Float)
+V.Local.fOnOrderExt.Declare(Float)
+V.Local.sCustomer.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sClosedOrderRet.Declare(String)
+V.Local.sBuyer.Declare(String)
+V.Local.sOnOrderMfgr.Declare(String)
+V.Local.sOnOrderPartNo.Declare(String)
+V.Local.sVendor.Declare(String)
+V.Local.sPORet.Declare(String)
+V.Local.sDateLastRecv.Declare(String)
+V.Local.sLastRecv.Declare(String)
+V.Local.sLastSupplier.Declare(string)
+V.Local.sLastManufacturer.Declare(String)
+V.Local.sLastManufPartNo.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.s90Days.Declare(String)
+V.Local.sTodayDate.Declare(String)
+
+V.Local.dTodayDate.Set(V.Ambient.Date)
+F.Intrinsic.Date.DateAdd("D",90, V.Local.dTodayDate,V.Local.d90Days)
+F.Intrinsic.String.Format(V.Local.d90Days,"YYYY-MM-DD",V.Local.s90Days)
+F.Intrinsic.String.Format(V.Local.dTodayDate,"YYYY-MM-DD", V.Local.sTodayDate)
+
+V.Local.sCustomer.Set(V.Screen.f_Main!txtCustNo.Text)
+
+F.Intrinsic.Control.For(V.Local.iCnt,0, V.DataTable.dtRFQ.RowCount--,1)
+	V.Local.sPart.Set(V.DataTable.dtRFQ(V.Local.iCnt).PartRev!FieldVal)
+	F.Intrinsic.String.Build("SELECT TOP 1 C.BUYER AS BUYER, A.MFG_NAME AS ONORDER_PARTMFGR, A.PART_MFG_NO AS ONORDER_MFGPARTNO, A.COST AS ONORDER_UCOST, A.EXTENSION AS OPENCOST_EXT, A.VENDOR AS VENDOR FROM V_PO_LINES A LEFT JOIN V_PO_HEADER B ON A.PURCHASE_ORDER = B.PURCHASE_ORDER LEFT JOIN V_BUYERS C ON B.BUYER = C.BUYER_CODE WHERE A.PART = '{0}' AND A.FLAG_RECV_CLOSE = 'N' ORDER BY A.PURCHASE_ORDER DESC", V.Local.sPart, V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*", V.Local.sRet)
+		V.Local.sBuyer.Set(V.Local.sRet(0).Trim)
+		V.Local.sOnOrderMfgr.Set(V.Local.sRet(1).Trim)
+		V.Local.sOnOrderPartNo.Set(v.Local.sRet(2).Trim)
+		V.Local.fOnOrderCost.Set(V.Local.sRet(3).Trim)
+		V.Local.fOnOrderExt.Set(V.Local.sRet(4).Trim)
+		V.Local.sVendor.Set(V.Local.sRet(5).Trim)
+		F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "BUYER", V.Local.sBuyer, "ONORDER_PARTMFGR", V.Local.sOnOrderMfgr,"ONORDER_MFGPARTNO", V.Local.sOnOrderPartNo, "ONORDER_UCOST", V.Local.fOnOrderCost, "MULTI_COST", "*", "OPENCOST_EXT", V.Local.fOnOrderExt, "VENDOR", V.Local.sVendor)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+
+'Loop through datatable to get all of the manufactured part numbers and the information from the last PO
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtRFQ.RowCount--,1)	
+	V.Local.sPart.Set(V.DataTable.dtRFQ(V.Local.iCnt).PartRev!FieldVal)
+	F.Intrinsic.String.Build("SELECT TOP 1 COST, EXTENSION, QTY_RECEIVED,DATE_LAST_RECEIVED, VENDOR, MFG_NAME,  PART_MFG_NO FROM V_PO_LINES WHERE PART ='{0}' ORDER BY DATE_LAST_RECEIVED DESC",V.Local.sPart, V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(v.Local.sSQL, V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*", V.Local.sRet)
+		V.Local.fLastPaid.Set(V.Local.sRet(0).Trim)
+		V.Local.fLastPaidExt.Set(V.Local.sRet(1).Trim)
+		V.Local.fLastQty.Set(V.Local.sRet(2).Trim)
+		V.Local.sDateLastRecv.Set(V.Local.sRet(3).Trim)
+		V.Local.sLastSupplier.Set(V.Local.sRet(4).Trim)
+		V.Local.sLastManufacturer.Set(V.Local.sRet(5).Trim)
+		V.Local.sLastManufPartNo.Set(V.Local.sRet(6).Trim)
+		F.Data.Datatable.SetValue("dtRFQ",V.Local.iCnt,"LAST_PAID", V.Local.fLastPaid, "LAST_PAID_EXT", v.Local.fLastPaidExt, "LAST_QTY", V.Local.fLastQty, "LAST_RECV", V.Local.sDateLastRecv, "LAST_SUPPLIER", V.Local.sLastSupplier, "LAST_PARTMFGR", v.Local.sLastManufacturer, "LAST_MFGRPARTNO", v.Local.sLastManufPartNo)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+'loop through the datatable to get manufactured part numbers from inv_cross_ref. If more than one record is returned, loop through all of the until EOF
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtRFQ.RowCount--,1)
+	V.Local.sPart.Set(V.DataTable.dtRFQ(V.Local.iCnt).PartRev!FieldVal)
+	
+	F.Intrinsic.Control.If(V.DataTable.dtMfgPart.Exists)
+		F.Data.DataTable.Close("dtMfgPart")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("SELECT MFG_PART, MFG_NAME FROM V_INV_CROSS_REF WHERE PART = '{0}' AND CUSTOMER = '{1}'", V.Local.sPart,V.Local.sCustomer.Trim, V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtMfgPart", "con", V.Local.sSQL)
+	F.Intrinsic.Control.If(V.DataTable.dtMfgPart.RowCount--,>,0)
+		F.Intrinsic.Control.For(V.Local.iMfgNoCnt,0,V.DataTable.dtMfgPart.RowCount--,1)
+			f.Intrinsic.Control.If(V.Local.iMfgNoCnt,=,0)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG", V.DataTable.dtMfgPart(0).MFG_PART!FieldValTrim, "MPN", V.DataTable.dtMfgPart(0).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.ElseIf(V.Local.iMfgNoCnt,=,1)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG2", V.DataTable.dtMfgPart(1).MFG_PART!FieldValTrim, "MPN2", V.DataTable.dtMfgPart(1).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.ElseIf(V.Local.iMfgNoCnt,=,2)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG3", V.DataTable.dtMfgPart(2).MFG_PART!FieldValTrim, "MPN3", V.DataTable.dtMfgPart(2).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.ElseIf(V.Local.iMfgNoCnt,=,3)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG4", V.DataTable.dtMfgPart(3).MFG_PART!FieldValTrim, "MPN4", V.DataTable.dtMfgPart(3).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.ElseIf(V.Local.iMfgNoCnt,=,4)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG5", V.DataTable.dtMfgPart(4).MFG_PART!FieldValTrim, "MPN5", V.DataTable.dtMfgPart(4).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.ElseIf(V.Local.iMfgNoCnt,=,5)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG6", V.DataTable.dtMfgPart(5).MFG_PART!FieldValTrim, "MPN6", V.DataTable.dtMfgPart(5).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.ElseIf(V.Local.iMfgNoCnt,=,6)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG7", V.DataTable.dtMfgPart(6).MFG_PART!FieldValTrim, "MPN7", V.DataTable.dtMfgPart(6).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.ElseIf(V.Local.iMfgNoCnt,=,7)
+				F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG8", V.DataTable.dtMfgPart(7).MFG_PART!FieldValTrim, "MPN8", V.DataTable.dtMfgPart(7).MFG_NAME!FieldValTrim)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iMfgNoCnt)
+	F.Intrinsic.Control.Else
+		F.Data.DataTable.SetValue("dtRFQ", V.Local.iCnt, "MFG", V.DataTable.dtMfgPart(0).MFG_PART!FieldValTrim, "MPN", V.DataTable.dtMfgPart(0).MFG_NAME!FieldValTrim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG", "STRING", "PARTREV+MFG+MPN")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG2", "STRING", "PARTREV+MFG2+MPN2")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG3", "STRING", "PARTREV+MFG3+MPN3")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG4", "STRING", "PARTREV+MFG4+MPN4")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG5", "STRING", "PARTREV+MFG5+MPN5")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG6", "STRING", "PARTREV+MFG6+MPN6")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG7", "STRING", "PARTREV+MFG7+MPN7")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "PMFG8", "STRING", "PARTREV+MFG8+MPN8")
+
+F.Data.Dictionary.CreateFromSQL("dictMfgOnHand", "con", "SELECT Ltrim(rtrim(PART))+Ltrim(rtrim(SERIAL_NUMBER))+LTrim(rtrim(HEAT)) AS PMFG, QUANTITY FROM V_ITEM_MASTER")
+F.Data.Dictionary.SetDefaultReturn("dictMfgOnHand", 0)
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG", "QTYOH1")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG2", "QTYOH2")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG3", "QTYOH3")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG4", "QTYOH4")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG5", "QTYOH5")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG6", "QTYOH6")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG7", "QTYOH7")
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictMfgOnHand", "PMFG8", "QTYOH8")
+F.Data.Dictionary.Close("dictMfgOnHand")
+
+
+F.Data.Dictionary.CreateFromSQL("dictTotalOnHand", "con", "SELECT PART AS FULLPART, SUM(QUANTITY) AS TOTALOH FROM V_ITEM_MASTER GROUP BY PART")
+F.Data.Dictionary.SetDefaultReturn("dictTotalOnHand", 0)
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictTotalOnHand","FULLPART", "TOTAL_QTY_OH")
+F.Data.Dictionary.Close("dictTotalOnHand")
+
+'calculate and populate 90 day required qty
+F.Intrinsic.String.Build("SELECT LTRIM(RTRIM(PART)) AS PARTREV, SUM((QTY_ORDER-QTY_RECEIVED-QTY_REJECT)) AS QTY_REQUIRED FROM V_PO_LINES WHERE DATE_DUE_LINE BETWEEN '{0}' AND '{1}' GROUP BY PARTREV", V.Local.sTodayDate, V.Local.s90Days, V.Local.sSQL )
+F.Data.Dictionary.CreateFromSQL("dictReqQty90", "con", V.Local.sSQL)
+F.Data.Dictionary.SetDefaultReturn("dictReqQty90", 0)
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictReqQty90", "PARTREV", "REQQTY90")
+F.Data.Dictionary.Close("dictReqQty90")
+
+'calculate and populate 90 day on order qty
+F.Intrinsic.String.Build("SELECT LTRIM(RTRIM(PART)) AS PARTREV, SUM(QTY_ORDER) AS QTY_ON_ORDER FROM V_PO_LINES WHERE DATE_DUE_LINE BETWEEN '{0}' AND '{1}' GROUP BY PARTREV", V.Local.sTodayDate, V.Local.s90Days, V.Local.sSQL )
+F.Data.Dictionary.CreateFromSQL("dictOnOrder90", "con", V.Local.sSQL)
+F.Data.Dictionary.SetDefaultReturn("dictOnOrder90", 0)
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictOnOrder90", "PARTREV", "ONORDER90")
+F.Data.Dictionary.Close("dictOnOrder90")
+
+'calculate and populate excess
+F.Data.DataTable.AddExpressionColumn("dtRFQ","EXCESS", "FLOAT", "[ONORDER90] - [ONORDER]")
+
+'calculate and populate excess 90 days
+F.Data.DataTable.AddColumn("dtRFQ", "OnOrder90Plus", "Float")
+F.Intrinsic.String.Build("SELECT LTRIM(RTRIM(PART)) AS PARTREV, SUM(QTY_ORDER) AS QTY_ON_ORDER FROM V_PO_LINES WHERE DATE_DUE_LINE > '{0}' GROUP BY PARTREV", V.Local.s90Days, V.Local.sSQL)
+F.Data.Dictionary.CreateFromSQL("dictOnOrder90Plus", "con", V.Local.sSQL)
+F.Data.Dictionary.SetDefaultReturn("dictOnOrder90Plus", 0)
+F.Data.DataTable.FillFromDictionary("dtRFQ", "dictOnOrder90Plus", "PARTREV", "OnOrder90Plus")
+F.Data.Dictionary.Close("dictOnOrder90Plus")
+
+F.Data.DataTable.AddExpressionColumn("dtRFQ", "EXCESS90", "FLOAT", "[OnOrder90Plus] - [ONORDER]")
+
+F.Data.DataTable.SetValue("dtRFQ", -1, "BOM_PARENT", V.Global.sParentNo.Trim, "BOM_PARENT_REV", V.Global.sParentRev)
+
+'Get the on hand approved qtys by AVL
+f.Data.dictionary.CreateFromSQL("dictAVLOnHand","con","SELECT (LTRIM(RTRIM(A.PART))+LTRIM(RTRIM(A.MFG_PART))+LTRIM(RTRIM(A.MFG_NAME))) AS PMFG, ISNULL(B.QTY_AVAILABLE_SHIP,0) AS QTY_ONHAND FROM V_INV_CROSS_REF A LEFT JOIN V_ITEM_MASTER B ON A.PART = B.PART AND LTRIM(RTRIM(A.MFG_PART)) = LTRIM(RTRIM(B.SERIAL_NUMBER)) AND LTRIM(RTRIM(A.MFG_NAME)) = LTRIM(RTRIM(B.HEAT)) WHERE CONCAT(A.MFG_PART,A.MFG_NAME) IN (SELECT CONCAT(MFG_PART, MFG_NAME) FROM V_BOM_XREF) ")
+f.Data.Dictionary.SetDefaultReturn("dictAVLOnHand",0)
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG","QTYOHAPPR1")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG2","QTYOHAPPR2")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG3","QTYOHAPPR3")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG4","QTYOHAPPR4")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG5","QTYOHAPPR5")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG6","QTYOHAPPR6")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG7","QTYOHAPPR7")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG8","QTYOHAPPR8")
+f.Data.Dictionary.Close("dictAVLOnHand")
+	
+'Get the on hand non-approved qtys by AVL
+f.Data.dictionary.CreateFromSQL("dictAVLOnHand","con","SELECT (LTRIM(RTRIM(A.PART))+LTRIM(RTRIM(A.MFG_PART))+LTRIM(RTRIM(A.MFG_NAME))) AS PMFG, ISNULL(B.QTY_AVAILABLE_SHIP,0) AS QTYONHAND FROM V_INV_CROSS_REF A LEFT JOIN V_ITEM_MASTER B ON A.PART = B.PART AND LTRIM(RTRIM(A.MFG_PART)) = LTRIM(RTRIM(B.SERIAL_NUMBER)) AND LTRIM(RTRIM(A.MFG_NAME)) = LTRIM(RTRIM(B.HEAT)) WHERE CONCAT(A.MFG_PART,A.MFG_NAME) NOT IN (SELECT CONCAT(MFG_PART, MFG_NAME) FROM V_BOM_XREF) ")
+f.Data.Dictionary.SetDefaultReturn("dictAVLOnHand",0)
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG","QTYOHUNAPPR1")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG2","QTYOHUNAPPR2")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG3","QTYOHUNAPPR3")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG4","QTYOHUNAPPR4")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG5","QTYOHUNAPPR5")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG6","QTYOHUNAPPR6")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG7","QTYOHUNAPPR7")
+f.Data.DataTable.FillFromDictionary("dtRFQ","dictAVLOnHand","PMFG8","QTYOHUNAPPR8")
+f.Data.Dictionary.Close("dictAVLOnHand")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadMfgData.End
+
+Program.Sub.FormatGrid.Start
+F.Intrinsic.Control.Try
+V.Local.sDefault.Declare(String)
+V.Local.sGridView.Declare(String)
+V.Local.sProperty.Declare(String)
+
+Gui.f_Export_Data.GsGcExportData.SuspendLayout
+
+Gui.f_Export_Data.GsGcExportData.AddGridviewFromDataview("gvRFQ", "dtRFQ", "dvRFQ")
+'Gui.f_Export_Data.GsGcExportData.AddGridviewFromDatatable("gvRFQ", "dtRFQ")
+V.Local.sGridView.Set("gvRFQ")
+
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "AllowColumnResizing", True)
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "AllowColumnMoving", False)
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "ShowGroupPanel", False)
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "AllowAddRows", False)
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "AllowDeleteRows", False)
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "OptionsViewColumnAutoWidth", False)
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "MultiSelect", False)
+Gui.f_Export_Data.GsGcExportData.SetGridviewProperty(V.Local.sGridView, "MultiSelectMode", 0)
+
+V.Local.sProperty.Set("Caption")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT", V.Local.sProperty, "BOM Parent")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT_REV", V.Local.sProperty, "BOM Parent Rev")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_SOURCE", V.Local.sProperty, "Part Source")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "GSSPart", V.Local.sProperty, "GSS Part")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REV", V.Local.sProperty, "Rev")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PARTREV", V.Local.sProperty, "Full Part")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "DESCRIPTION", V.Local.sProperty, "Description")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "UM", V.Local.sProperty, "UM")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_CLASS", V.Local.sProperty, "Part Class")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_TYPE", V.Local.sProperty, "Part Type")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER_TYPE", V.Local.sProperty, "Buyer Type")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER", V.Local.sProperty, "Buyer Name")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LTIME", V.Local.sProperty, "Purchasing LTime")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LUNIT", V.Local.sProperty, "Purchasing LUnit")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LTIME", V.Local.sProperty, "Kit LTime")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LUNIT", V.Local.sProperty, "Kit LUnit")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LTIME", V.Local.sProperty, "Prod LTime")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LUNIT", V.Local.sProperty, "Prod LUnit")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY", V.Local.sProperty, "QTY")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "STD_COST", V.Local.sProperty, "Std. Cost")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXT_COST", V.Local.sProperty, "Ext. Cost")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID", V.Local.sProperty, "Last Amt. Paid")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID_EXT", V.Local.sProperty, "Last Paid Ext.")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_QTY", V.Local.sProperty, "Last Qty Puchased")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_RECV", V.Local.sProperty, "Last Received")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_SUPPLIER", V.Local.sProperty, "Last Supplier")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PARTMFGR", V.Local.sProperty, "Last Part Manufacturer")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_MFGRPARTNO", V.Local.sProperty, "Last Manufactured Part #")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPART", V.Local.sProperty, "Customer Part No.")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPARTREV", V.Local.sProperty, "Customer Part Rev")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTOMER", V.Local.sProperty, "Customer")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY", V.Local.sProperty, "Required Qty")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDAPPR", V.Local.sProperty, "Approved On-Hand Qty")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDNONAPPR", V.Local.sProperty, "Non-Apprv. On-Hand Qty")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER", V.Local.sProperty, "On Order Qty")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPOAPPR", V.Local.sProperty, "On Order Apprv. Qty")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPONONAPPR", V.Local.sProperty, "On Order Non-Apprv. Qty")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_PARTMFGR", V.Local.sProperty,  "On Order Part Manufacturer")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_MFGPARTNO", V.Local.sProperty, "On Order Manufactured Part No.")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_UCOST", V.Local.sProperty, "On Order UCost")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MULTI_COST", V.Local.sProperty, "Multi Cost")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "OPENCOST_EXT",  V.Local.sProperty, "Open Cost Ext.")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MATLTYPE", V.Local.sProperty, "Material Type")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "VENDOR", V.Local.sProperty, "Supplier No.")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "SUPNAME", V.Local.sProperty, "Supplier Name")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY90", V.Local.sProperty, "Required Qty 90")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER90", V.Local.sProperty, "On Order 90")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "TOTAL_QTY_OH", V.Local.sProperty, "Total OH Qty")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN", V.Local.sProperty, "Manufacturer Name 1")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG", V.Local.sProperty, "Manufacturer Part 1")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH1", V.Local.sProperty, "Qty OH 1")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR1", V.Local.sProperty, "Approved Qty OH 1")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR1", V.Local.sProperty, "Unapproved Qty OH 1")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN2", V.Local.sProperty, "Manufacturer Name 2")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG2", V.Local.sProperty, "Manufacturer Part 2")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH2", V.Local.sProperty, "Qty OH 2")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR2", V.Local.sProperty, "Approved Qty OH 2")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR2", V.Local.sProperty, "Unapproved Qty OH 2")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN3", V.Local.sProperty, "Manufacturer Name 3")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG3", V.Local.sProperty, "Manufacturer Part 3")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH3", V.Local.sProperty, "Qty OH 3")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR3", V.Local.sProperty, "Approved Qty OH 3")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR3", V.Local.sProperty, "Unapproved Qty OH 3")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN4", V.Local.sProperty, "Manufacturer Name 4")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG4", V.Local.sProperty, "Manufacturer Part 4")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH4", V.Local.sProperty, "Qty OH 4")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR4", V.Local.sProperty, "Approved Qty OH 4")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR4", V.Local.sProperty, "Unapproved Qty OH 4")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN5", V.Local.sProperty, "Manufacturer Name 5")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG5", V.Local.sProperty, "Manufacturer Part 5")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH5", V.Local.sProperty, "Qty OH 5")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR5", V.Local.sProperty, "Approved Qty OH 5")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR5", V.Local.sProperty, "Unapproved Qty OH 5")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN6", V.Local.sProperty, "Manufacturer Name 6")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG6", V.Local.sProperty, "Manufacturer Part 6")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH6", V.Local.sProperty, "Qty OH 6")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR6", V.Local.sProperty, "Approved Qty OH 6")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR6", V.Local.sProperty, "Unapproved Qty OH 6")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN7", V.Local.sProperty, "Manufacturer Name 7")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG7", V.Local.sProperty, "Manufacturer Part 7")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH7", V.Local.sProperty, "Qty OH 7")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR7", V.Local.sProperty, "Approved Qty OH 7")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR7", V.Local.sProperty, "Unapproved Qty OH 7")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN8", V.Local.sProperty, "Manufacturer Name 8")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG8", V.Local.sProperty, "Manufacturer Part 8")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH8", V.Local.sProperty, "Qty OH 8")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR8", V.Local.sProperty, "Approved Qty OH 8")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR8", V.Local.sProperty, "Unapproved Qty OH 8")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(v.Local.sGridView, "MRP_MINORDER", V.Local.sProperty, "MRP Min. Order")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MRP_MULTIPLE", V.Local.sProperty, "MRP Multiple")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS", V.Local.sProperty, "Excess")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS90", V.Local.sProperty, "Excess 90")
+
+V.Local.sProperty.Set("HeaderFontBold")
+V.Local.sDefault.Set("True")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT_REV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_SOURCE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "GSSPart", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PARTREV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "DESCRIPTION", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "UM", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_CLASS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_TYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER_TYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "STD_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXT_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID_EXT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_RECV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_SUPPLIER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PARTMFGR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_MFGRPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPART", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPARTREV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTOMER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDNONAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPOAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPONONAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_PARTMFGR", V.Local.sProperty,  V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_MFGPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_UCOST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MULTI_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "OPENCOST_EXT",  V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MATLTYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "VENDOR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "SUPNAME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "TOTAL_QTY_OH", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(v.Local.sGridView, "MRP_MINORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MRP_MULTIPLE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS90", V.Local.sProperty, V.Local.sDefault)
+
+V.Local.sProperty.Set("ReadOnly")
+V.Local.sDefault.Set("True")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT_REV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_SOURCE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "GSSPart", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PARTREV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "DESCRIPTION", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "UM", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_CLASS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_TYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER_TYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "STD_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXT_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID_EXT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_RECV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_SUPPLIER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PARTMFGR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_MFGRPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPART", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPARTREV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTOMER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDNONAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPOAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPONONAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_PARTMFGR", V.Local.sProperty,  V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_MFGPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_UCOST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MULTI_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "OPENCOST_EXT",  V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MATLTYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "SUPNAME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "VENDOR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "TOTAL_QTY_OH", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(v.Local.sGridView, "MRP_MINORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MRP_MULTIPLE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS90", V.Local.sProperty, V.Local.sDefault)
+
+
+V.Local.sProperty.Set("AllowEdit")
+V.Local.sDefault.Set("False")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT_REV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_SOURCE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "GSSPart", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PARTREV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "DESCRIPTION", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "UM", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_CLASS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_TYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER_TYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "STD_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXT_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID_EXT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_RECV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_SUPPLIER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PARTMFGR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_MFGRPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPART", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPARTREV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTOMER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDNONAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPOAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPONONAPPR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_PARTMFGR", V.Local.sProperty,  V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_MFGPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_UCOST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MULTI_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "OPENCOST_EXT",  V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MATLTYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "VENDOR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "SUPNAME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "TOTAL_QTY_OH", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(v.Local.sGridView, "MRP_MINORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MRP_MULTIPLE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS90", V.Local.sProperty, V.Local.sDefault)
+
+
+V.Local.sProperty.Set("MinWidth")
+V.Local.sDefault.Set("150")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView,"BOM_PARENT_REV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_SOURCE", V.Local.sProperty, 100)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "GSSPart", V.Local.sProperty, 125)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REV", V.Local.sProperty, 75)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PARTREV", V.Local.sProperty, 125)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "DESCRIPTION", V.Local.sProperty, 200)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "UM", V.Local.sProperty, 75)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_CLASS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PART_TYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER_TYPE", V.Local.sProperty, 100)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "BUYER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PUR_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "KIT_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LTIME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PROD_LUNIT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "STD_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXT_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PAID_EXT", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_QTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_RECV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_SUPPLIER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_PARTMFGR", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "LAST_MFGRPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPART", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTPARTREV", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "CUSTOMER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDAPPR", V.Local.sProperty, 100)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONHANDNONAPPR", V.Local.sProperty, 100)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPOAPPR", V.Local.sProperty, 100)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTY_ONPONONAPPR", V.Local.sProperty, 100)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_PARTMFGR", V.Local.sProperty,  V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_MFGPARTNO", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER_UCOST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MULTI_COST", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "OPENCOST_EXT",  V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MATLTYPE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "VENDOR", V.Local.sProperty, 75)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "SUPNAME", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "REQQTY90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "ONORDER90", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "TOTAL_QTY_OH", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR1", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR2", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR3", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR4", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR5", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR6", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR7", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MPN8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MFG8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOH8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "QTYOHUNAPPR8", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(v.Local.sGridView, "MRP_MINORDER", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "MRP_MULTIPLE", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS", V.Local.sProperty, V.Local.sDefault)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "EXCESS90", V.Local.sProperty, V.Local.sDefault)
+
+V.Local.sProperty.Set("Visible")
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PARTREV", V.Local.sProperty,False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "FULLPART", V.Local.sProperty,False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG2", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG3", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG4", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG5", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG6", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG7", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "PMFG8", V.Local.sProperty, False)
+Gui.f_Export_Data.GsGcExportData.SetColumnProperty(V.Local.sGridView, "OnOrder90Plus", V.Local.sProperty, False)
+
+Gui.f_Export_Data.GsGcExportData.ResumeLayout
+Gui.f_Export_Data.GsGcExportData.MainView("gvRFQ")
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.FormatGrid.End
+
+Program.Sub.cmdOK_Click.Start
+F.Intrinsic.Control.Try
+V.Local.bDirectoryExists.Declare(Boolean)
+V.Local.sDirectory.Declare(String)
+V.Local.sFilePath.Declare(String)
+
+F.Intrinsic.String.Build("{0}\RFQ Export", V.Caller.FilesDir, V.Local.sDirectory)
+F.Intrinsic.File.DirExists(V.Local.sDirectory, V.Local.bDirectoryExists)
+F.Intrinsic.Control.If(V.Local.bDirectoryExists,=,False)
+	F.Intrinsic.File.CreateDir(V.Local.sDirectory)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Global.bExcel,=,True)
+	F.Intrinsic.String.Build("{0}\RFQRecap_EXPORT_{1}_{2}.xlsx",V.Local.sDirectory, V.Caller.User.Trim,V.Caller.CompanyCode, V.Local.sFilePath)
+	Gui.f_Export_Data.GsGcExportData.Export(V.Local.sFilePath, "xlsx")
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("{0}\RFQRecap_EXPORT_{1}_{2}.csv",V.Local.sDirectory, V.Caller.User.Trim,V.Caller.CompanyCode, V.Local.sFilePath)
+	F.Data.DataTable.SaveToCSV("dtRFQ", V.Local.sFilePath, True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.Msgbox("Export Complete!")
+
+F.Intrinsic.Task.ShellExec(V.Caller.Handle, "open", V.Local.sFilePath,"", "", 1)
+
+Gui.f_Export_Data..Visible(False)
+F.Data.Datatable.DeleteRow("dtRFQ")
+
+
+Gui.f_Main.txtCustNo.Text("")
+Gui.f_Main.txtCustomer.Text("")
+Gui.f_Main.txtParent.Text("")
+Gui.f_Main.txtAssembly.Text("")
+Gui.f_Main.chkExcelExport.Value(0)
+
+Gui.f_Main..Show
+
+F.Intrinsic.Control.BlockEvents
+Gui.f_Main.txtCustNo.SetFocus
+F.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdOK_Click.End
+
+Program.Sub.cmdCancel_Click.Start
+F.Intrinsic.Control.Try
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.UI.Msgbox("Data will not be exported. Are you sure you want to cancel?", "Warning", 4, V.Local.iRet)
+
+F.Intrinsic.Control.If(V.Local.iRet,=,6)
+	Gui.f_Export_Data..Visible(False)
+	F.Data.DataTable.DeleteRow("dtRFQ")
+
+	Gui.f_Main.txtCustNo.Text("")
+	Gui.f_Main.txtCustomer.Text("")
+	Gui.f_Main.txtParent.Text("")
+	Gui.f_Main.txtAssembly.Text("")
+	Gui.f_Main.chkExcelExport.Value(0)
+
+	Gui.f_Main..Show
+	
+	F.Intrinsic.Control.BlockEvents
+	Gui.f_Main.txtCustNo.SetFocus
+	F.Intrinsic.Control.UnBlockEvents
+	
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCancel_Click.End
+
+Program.Sub.f_Export_Data_UnLoad.Start
+F.Intrinsic.Control.Try
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.UI.Msgbox("Data will not be exported. Are you sure you want to cancel?", "Warning", 4, V.Local.iRet)
+
+F.Intrinsic.Control.If(V.Local.iRet,=,6)
+	'Hide the form if they close
+	Gui.f_Export_Data..Visible(False)
+	Gui.f_Main.txtCustNo.Text("")
+	Gui.f_Main.txtCustomer.Text("")
+	Gui.f_Main.txtParent.Text("")
+	Gui.f_Main.txtAssembly.Text("")
+	Gui.f_Main.chkExcelExport.Value(0)
+
+	Gui.f_Main..Show
+	
+	F.Intrinsic.Control.BlockEvents
+	Gui.f_Main.txtCustNo.SetFocus
+	F.Intrinsic.Control.UnBlockEvents
+	
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.Else	
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.f_Export_Data_UnLoad.End
+
+Program.Sub.f_Main_UnLoad.Start
+F.Intrinsic.Control.Try
+'close the connection
+F.ODBC.Connection!con.Close
+'end the program
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "5965", "ProjectTitle", "RFQ Recap Export", "Callback", "f_Main_Unload")
+F.Intrinsic.Control.EndTry
+Program.Sub.f_Main_UnLoad.End
+
+Program.Sub.ErrorMessage.Start
+'basic error message for replacing catch block
+'this is really just for when printing the message and ending program
+'pass error number, error description, current subroutine
+'optional callback sub, this will be called before ending
+'optional unattended parameters, those subs may not exist if not using them but won't be called
+F.Intrinsic.Control.Try
+
+V.Local.iError.Declare(Long)
+V.Local.sErrorDescription.Declare(String)
+V.Local.sSubroutine.Declare(String)
+V.Local.sError.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sCallback.Declare(String)
+
+V.Local.iError.Set(V.Args.ErrorNumber)
+V.Local.sErrorDescription.Set(V.Args.ErrorDescription)
+V.Local.sSubroutine.Set(V.Args.Subroutine)
+
+'make sure we aren't in an error loop
+F.Intrinsic.Control.If(V.Global.bError)
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndIf
+V.Global.bError.Set(True)
+
+F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}", V.Caller.ScriptFile, V.Ambient.Newline, V.Local.sSubroutine, V.Local.iError, V.Local.sErrorDescription, V.Ambient.GABVersion, V.Local.sError)
+
+F.Intrinsic.Variable.ArgExists("UNATTENDED", V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists)
+	F.Intrinsic.Control.If(V.Args.UNATTENDED)
+		F.Intrinsic.Control.CallSub(UnattendedErrorMessage, "MESSAGE", V.Local.sError, "PROJECT", V.Args.PROJECT, "PROJECTTITLE", V.Args.PROJECTTITLE)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.ArgExists("Callback", V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists)
+	V.Local.sCallback.Set(V.Args.Callback.Trim)
+	
+	F.Intrinsic.Control.CallSub(V.Local.sCallback)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndTry
+Program.Sub.ErrorMessage.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$acollins$}$20200513163226514$}$h98hERc2yV72q0GaUGlwSaoK/aefTdVkMo60XrNJzOC1FIObyAqyGFNjb1CuiEDB+4rJVoe3YJ6K9qy4CakAzg==
+Program.Sub.Comments.End
